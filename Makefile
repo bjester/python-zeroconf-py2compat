@@ -1,4 +1,4 @@
-.PHONY: all virtualenv
+.PHONY: all virtualenv build
 MAX_LINE_LENGTH=110
 PYTHON_IMPLEMENTATION:=$(shell python -c "import sys;import platform;sys.stdout.write(platform.python_implementation())")
 PYTHON_VERSION:=$(shell python -c "import sys;sys.stdout.write('%d.%d' % sys.version_info[:2])")
@@ -9,6 +9,10 @@ ifneq ($(findstring PyPy,$(PYTHON_IMPLEMENTATION)),PyPy)
 	LINT_TARGETS:=$(LINT_TARGETS) mypy black_check
 endif
 
+
+build:
+	@mkdir -p dist
+	@python remove_typing.py zeroconf/__init__.py | black - > dist/zeroconf.py
 
 virtualenv: ./env/requirements.built
 

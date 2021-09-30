@@ -1,3 +1,4 @@
+astunparse
 autopep8
 black;implementation_name=="cpython"
 coveralls

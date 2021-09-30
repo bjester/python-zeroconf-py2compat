@@ -13,4 +13,6 @@ Thumbs.db
 docs/_build/
 .vscode
 /dist/
+venv
 /zeroconf.egg-info/
+/zeroconf_py2compat.egg-info/
